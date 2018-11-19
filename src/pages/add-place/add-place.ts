@@ -76,7 +76,7 @@ export class AddPlacePage {
       content: 'Getting your location...'
     });
     loader.present();
-    this.geolocation.getCurrentPosition()
+    this.geolocation.getCurrentPosition({timeout: 20000})
       .then(location => {
         this.location.lat = location.coords.latitude;
         this.location.lng = location.coords.longitude;

@@ -1,17 +1,17 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title text-center>
       Awesome Places
     </ion-title>
-    <ion-buttons end>
+    <!-- <ion-buttons end>
       <button ion-button icon-only [navPush]="addPlacePage">
         <ion-icon name="add"></ion-icon>
       </button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding (ionScroll)="onScroll($event)">
   <ion-card *ngFor="let place of places; let i = index;" (click)="onOpenPlace(place, i)">
     <img [src]="place.imageUrl">
     <ion-card-content text-center>
@@ -21,4 +21,11 @@
       <p>{{place.description}}</p>
     </ion-card-content>
   </ion-card>
+
+  <!-- Ne znam sto ovde nece ngIf -->
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" [navPush]="addPlacePage">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>
